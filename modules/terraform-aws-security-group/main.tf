@@ -2,7 +2,7 @@
 # DIMAG
 ##################################
 
-resource "aws_security_group" "this" {
+resource "aws_security_group" "thisdimag" {
   count = var.dimag ? 1 : 0
 
   name        = "DIMAG"
