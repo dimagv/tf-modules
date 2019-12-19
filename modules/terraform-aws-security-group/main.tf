@@ -1,4 +1,23 @@
 ##################################
+# DIMAG
+##################################
+
+resource "aws_security_group" "this" {
+  count = var.dimag ? 1 : 0
+
+  name        = "DIMAG"
+  description = "DIMAG"
+  vpc_id      = var.vpc_id
+
+  tags = merge(
+    var.tags,
+    {
+      "Name" = format("%s", "DIMAG")
+    },
+  )
+}
+
+##################################
 # Get ID of created Security Group
 ##################################
 locals {
